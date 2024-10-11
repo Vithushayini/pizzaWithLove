@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Margherita Pizza",
+        "description": "A classic Margherita pizza with a delicious tomato base, mozzarella cheese, and fresh basil leaves.",
+        "price": 9.99,
+        "imageUrl": "/images/pizzas/margherita.jpg"
+    },
+    {
+        "name": "Pepperoni Pizza",
+        "description": "A spicy and savory pizza topped with generous slices of pepperoni and mozzarella cheese.",
+        "price": 12.99,
+        "imageUrl": "/images/pizzas/pepperoni.jpg"
+    },
+    {
+        "name": "BBQ Chicken Pizza",
+        "description": "A smoky BBQ chicken pizza with tangy BBQ sauce, grilled chicken, onions, and mozzarella cheese.",
+        "price": 14.99,
+        "imageUrl": "/images/pizzas/bbq-chicken.jpg"
+    },
+    {
+        "name": "Veggie Supreme Pizza",
+        "description": "A veggie-loaded pizza topped with mushrooms, onions, bell peppers, olives, and mozzarella cheese.",
+        "price": 11.99,
+        "imageUrl": "/images/pizzas/veggie-supreme.jpg"
+    },
+    {
+        "name": "Hawaiian Pizza",
+        "description": "A sweet and savory pizza topped with ham, pineapple, and mozzarella cheese.",
+        "price": 13.49,
+        "imageUrl": "/images/pizzas/hawaiian.jpg"
+    },
+    {
+        "name": "Four Cheese Pizza",
+        "description": "A rich and creamy pizza loaded with mozzarella, parmesan, cheddar, and blue cheese.",
+        "price": 15.99,
+        "imageUrl": "/images/pizzas/four-cheese.jpg"
+    },
+    {
+        "name": "Spicy Italian Pizza",
+        "description": "A fiery pizza with spicy Italian sausage, jalapenos, mozzarella cheese, and a spicy tomato sauce.",
+        "price": 13.99,
+        "imageUrl": "/images/pizzas/spicy-italian.jpg"
+    },
+    {
+        "name": "Buffalo Chicken Pizza",
+        "description": "A zesty pizza topped with buffalo chicken, blue cheese crumbles, and a drizzle of buffalo sauce.",
+        "price": 16.99,
+        "imageUrl": "/images/pizzas/buffalo-chicken.jpg"
+    },
+    {
+        "name": "Mushroom & Truffle Pizza",
+        "description": "A gourmet pizza with sautéed mushrooms, white truffle oil, and mozzarella cheese.",
+        "price": 18.49,
+        "imageUrl": "/images/pizzas/mushroom-truffle.jpg"
+    },
+    {
+        "name": "Meat Lover's Pizza",
+        "description": "A hearty pizza packed with pepperoni, sausage, ham, bacon, and mozzarella cheese.",
+        "price": 17.99,
+        "imageUrl": "/images/pizzas/meat-lovers.jpg"
+    },
+    {
+        "name": "Mediterranean Pizza",
+        "description": "A light pizza with feta cheese, olives, tomatoes, spinach, and red onions.",
+        "price": 14.49,
+        "imageUrl": "/images/pizzas/mediterranean.jpg"
+    },
+    {
+        "name": "Pesto Chicken Pizza",
+        "description": "A flavorful pizza with grilled chicken, pesto sauce, cherry tomatoes, and mozzarella cheese.",
+        "price": 15.49,
+        "imageUrl": "/images/pizzas/pesto-chicken.jpg"
+    },
+    {
+        "name": "Shrimp Scampi Pizza",
+        "description": "A seafood lover's dream with shrimp, garlic butter sauce, mozzarella, and a sprinkle of parsley.",
+        "price": 19.99,
+        "imageUrl": "/images/pizzas/shrimp-scampi.jpg"
+    }
+]
