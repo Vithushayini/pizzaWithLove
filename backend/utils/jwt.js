@@ -5,7 +5,7 @@ const sendToken=(admin,statuscode,res)=>{
 
     //setting cookies
     const options={
-        expires:new Date(Date.now() + process.env.COOKIE_EXPIRES_TIM *24 * 60 * 60 * 1000),
+        expires:new Date(Date.now() + process.env.COOKIE_EXPIRES_TIME *24 * 60 * 60 * 1000),
         httpOnly:true
     }
 
@@ -17,3 +17,5 @@ const sendToken=(admin,statuscode,res)=>{
         admin
     })
 }
+
+module.exports=sendToken;

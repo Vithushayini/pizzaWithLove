@@ -3,10 +3,10 @@ const sendToken=require('../utils/jwt');
 
 
 //Login Admin- {{base_url}}/api/v1/login
-exports.loginAdmin=async (req,res,next)=>{
+exports.loginAdmin=async (req,res)=>{
     const{username,password}=req.body
 
-    if(!email || !password){
+    if(!username || !password){
         return res.status(400).json({ message: 'please enter username & password' });
     }
 
