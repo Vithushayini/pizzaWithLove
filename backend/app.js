@@ -12,10 +12,11 @@ app.use(cookieParser());
 
 const auth=require('./routes/auth');
 const pizzas=require('./routes/pizza');
-
+const reservations=require('./routes/reservation');
 
 app.use('/api/v1/',auth);
 app.use('/api/v1/',pizzas);
+app.use('/api/v1/',reservations);
 
 
 module.exports=app;
