@@ -5,5 +5,4 @@ connectDatabase();
 
 const server=app.listen(process.env.PORT,()=>{
     console.log(`my server listening to the port ${process.env.PORT}`);
-    
 })
