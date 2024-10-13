@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="bg-black text-white">
       {/* Header Section */}
-      <section className="relative bg-cover bg-center py-32" style={{ backgroundImage: "url('/images/pizzaHome.jpg')" }}>
+      <section className="relative bg-cover bg-center h-screen py-32" style={{ backgroundImage: "url('/images/pizzaHome.jpg')" }}>
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-40"></div>
         <div className="relative container mx-auto text-center">
           <h1 className="text-5xl font-bold mb-5">Welcome to Pizza With Love</h1>
