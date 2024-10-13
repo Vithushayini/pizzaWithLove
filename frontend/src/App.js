@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from './components/layouts/Header'
+import Home from './components/Home'
 
 function App() {
   return (
     <div>
-      App
+      <Header/>
+      <Home/>
     </div>
   )
 }
