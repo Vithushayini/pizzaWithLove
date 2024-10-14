@@ -11,6 +11,7 @@ import AdminLogin from './components/AdminLoginPage'
 import Dashboard from './components/Dashboard'
 
 import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
+import Footer from './components/layouts/Footer'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
               <ExpertChefs/>
               <Reservation/>
               <Blog/>
+              <Footer/>
             </>} />
         
             <Route path="/login" element={<AdminLogin setIsLoggedIn={setIsLoggedIn}/>} />
