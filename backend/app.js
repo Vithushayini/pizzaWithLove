@@ -2,8 +2,11 @@ const express= require('express');
 const path= require('path');
 const dotenv= require('dotenv');
 const cookieParser= require('cookie-parser');
+const cors = require('cors');
+
 
 const app= express();
+app.use(cors());
 
 dotenv.config({path:path.join(__dirname,"config/config.env")});
 

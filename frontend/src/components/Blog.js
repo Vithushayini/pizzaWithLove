@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
   return (
-    <div className=" -mt-28 min-h-screen">
+    <div className=" min-h-screen">
         {/* Blog Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">

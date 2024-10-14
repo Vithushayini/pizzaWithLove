@@ -4,7 +4,7 @@ const Menus = () => {
   return (
     <div className="bg-gray-100">
       {/* Header Section */}
-      <div className="bg-red-600 text-white -mt-52 p-6 text-center" style={{ backgroundImage: "url('/images/pizzaHome.jpg')" }}>
+      <div className="bg-red-600 text-white  p-6 text-center" style={{ backgroundImage: "url('/images/pizzaHome.jpg')" }}>
         <h1 className="text-4xl font-bold">Delicious Pizza</h1>
         <p className="mt-2 text-xl">The Best Pizza in Town</p>
         <span className="block mt-4 bg-yellow-500 text-black font-bold p-2 inline-block rounded">
