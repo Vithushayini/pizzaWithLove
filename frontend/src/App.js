@@ -5,6 +5,8 @@ import Menu from './components/Menu'
 import CompanyPage from './components/Company'
 import Menus from './components/Menus'
 import ExpertChefs from './components/Chefs'
+import Reservation from './components/Reservation'
+import Blog from './components/Blog'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       <CompanyPage/>
       <Menus/>
       <ExpertChefs/>
+      <Reservation/>
+      <Blog/>
     </div>
   )
 }
