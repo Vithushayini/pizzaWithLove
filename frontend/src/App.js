@@ -8,22 +8,37 @@ import ExpertChefs from './components/Chefs'
 import Reservation from './components/Reservation'
 import Blog from './components/Blog'
 import AdminLogin from './components/AdminLoginPage'
+import Dashboard from './components/Dashboard'
+
+import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
 
   return (
     <div>
-      <Header/>
-      <Home/>
-      <Menu/>
-      <Company/>
-      <Menus/>
-      <ExpertChefs/>
-      <Reservation/>
-      <Blog/>
-      <AdminLogin setIsLoggedIn={setIsLoggedIn} />
+
+      <BrowserRouter>
+          <Routes>
+
+            <Route path="/" element={<>
+              <Header setIsLoggedIn={setIsLoggedIn}/>
+              <Home/>
+              <Menu/>
+              <Company/>
+              <Menus/>
+              <ExpertChefs/>
+              <Reservation/>
+              <Blog/>
+            </>} />
+        
+            <Route path="/login" element={<AdminLogin setIsLoggedIn={setIsLoggedIn}/>} />
+            <Route path="/dashboard" element={isLoggedIn ? <Dashboard/> : <Navigate to="/" />}/>
+            
+
+          </Routes>
+       </BrowserRouter>
     </div>
   )
 }

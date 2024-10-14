@@ -1,4 +1,4 @@
-
+import {useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -20,6 +20,7 @@ const AdminLogin = ({ setIsLoggedIn }) => {
         password:""
     })
 
+    const navigate = useNavigate();
 
     const handleInput= (event)=>{
         setInputs({...inputs,[event.target.name]:event.target.value})
@@ -48,6 +49,7 @@ const AdminLogin = ({ setIsLoggedIn }) => {
                 });
                 localStorage.setItem('token',response.data.token);
                 setIsLoggedIn(true);
+                navigate('/');
         
             }catch(error){
                 err="invalid username or password";
@@ -96,7 +98,7 @@ const AdminLogin = ({ setIsLoggedIn }) => {
             ) : null}
 
             {loading ? (
-                <div className="flex justify-center items-center h-screen ">
+                <div className="flex justify-center items-center  ">
                     <div className="loader border-4 border-blue-500 border-t-transparent rounded-full w-12 h-12 animate-spin"></div>
                 </div>
             ) : null}

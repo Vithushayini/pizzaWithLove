@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoIosHeart } from "react-icons/io";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { Link, useNavigate } from 'react-router-dom';
 
 
-const Header = () => {
+const Header = ({setIsLoggedIn}) => {
+ 
+  const isLoggedIn = !!localStorage.getItem('token');
+
+  const navigate = useNavigate();
+
+    const handleLogout = ()=>{
+        localStorage.removeItem('token');
+        setIsLoggedIn(false)
+        navigate('/');
+    }
+   
   return (
     <header className="bg-red-600 text-white">
       {/* Top Bar */}
@@ -40,6 +52,10 @@ const Header = () => {
             <a href="#" className="text-white hover:text-red-600">PAGES</a>
             <a href="#" className="text-white hover:text-red-600">NEWS</a>
             <a href="#" className="text-white hover:text-red-600">CONTACT US</a>
+            {!isLoggedIn && <Link to="/login" className="text-white hover:text-red-600">LOGIN</Link>} 
+            {isLoggedIn && <Link to="/dashboard" className="text-white hover:text-red-600">DASHBOARD</Link>}
+            {isLoggedIn && <button onClick={handleLogout} className="text-white hover:text-red-600">LOGOUT</button>}
+            
           </nav>
 
           {/* Search, Cart, and Button */}
