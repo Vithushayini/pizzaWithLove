@@ -46,7 +46,7 @@ const AdminLogin = ({ setIsLoggedIn }) => {
                 const response= await axios.post('http://localhost:8000/api/v1/login',{
                     username:inputs.username,
                     password:inputs.password
-                });
+                },{ withCredentials: true });
                 localStorage.setItem('token',response.data.token);
                 setIsLoggedIn(true);
                 navigate('/');
