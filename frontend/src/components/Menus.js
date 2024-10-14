@@ -1,6 +1,129 @@
-import React from 'react';
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react';
+
+// const Menus = () => {
+
+//   const [pizzas, setPizzas] = useState([]);
+
+//   useEffect(() => {
+//     const fetchPizzas = async () => {
+//       try {
+//         const response = await axios.get('http://localhost:8000/api/v1/menu', {
+//           withCredentials: true, // Enable sending cookies with the request
+//         });
+
+//         setPizzas(response.data);
+//       } catch (error) {
+//         console.error('Error fetching pizzas', error);
+      
+//       }
+//     };
+
+//     fetchPizzas();
+//   }, [pizzas]);
+
+//   return (
+//     <div className="bg-gray-100">
+//       {/* Header Section */}
+//       <div className="bg-red-600 text-white  p-6 text-center" style={{ backgroundImage: "url('/images/pizzaHome.jpg')" }}>
+//         <h1 className="text-4xl font-bold">Delicious Pizza</h1>
+//         <p className="mt-2 text-xl">The Best Pizza in Town</p>
+//         <span className="block mt-4 bg-yellow-500 text-black font-bold p-2 inline-block rounded">
+//           UP TO 32% DISCOUNT
+//         </span>
+//       </div>
+
+//       {/* Menu Section */}
+//       <section className="py-8">
+//         <h2 className="text-center text-3xl font-bold text-gray-800 mb-6">Our Best Foods Menu</h2>
+
+//         {/* Categories */}
+//         <div className="flex justify-center space-x-8 mb-6">
+//           <div className="text-center">
+//             <span className="text-gray-800">🍔</span>
+//             <p className="text-red-600">Beef Burger</p>
+//           </div>
+//           <div className="text-center">
+//             <span className="text-gray-800">🍕</span>
+//             <p className="text-yellow-500 font-bold">Pizza</p>
+//           </div>
+//           <div className="text-center">
+//             <span className="text-gray-800">🍝</span>
+//             <p className="text-red-600">Fresh Pasta</p>
+//           </div>
+//           <div className="text-center">
+//             <span className="text-gray-800">🍣</span>
+//             <p className="text-red-600">Hot Sushi</p>
+//           </div>
+//           <div className="text-center">
+//             <span className="text-gray-800">🥤</span>
+//             <p className="text-red-600">Drink & Juice</p>
+//           </div>
+//         </div>
+
+//         {/* Pizza Menu */}
+//         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4">
+//           {/* Pizza Items */}
+//           {pizzas.map((pizza)=>(
+//               <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
+//               <img
+//                 className="w-40 h-40 object-cover rounded-lg"
+//                 src={pizza.imageUrl}
+//                 alt="Pepperoni Pizza"
+//               />
+//               <div>
+//                 <h3 className="text-xl font-bold text-gray-900">{pizza.name}</h3>
+//                 <p className="text-gray-600">{pizza.description}</p>
+//                 <span className="block mt-4 text-red-600 font-bold">{pizza.price}</span>
+//               </div>
+//             </div>
+//           ))}
+        
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
+
+// export default Menus;
+
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 const Menus = () => {
+  const [pizzas, setPizzas] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1); // Track the current page
+  const itemsPerPage = 6; // Number of pizzas to show per page
+
+  useEffect(() => {
+    const fetchPizzas = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/v1/menu', {
+          withCredentials: true,
+        });
+        setPizzas(response.data);
+      } catch (error) {
+        console.error('Error fetching pizzas', error);
+      }
+    };
+
+    fetchPizzas();
+  }, []);
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(pizzas.length / itemsPerPage);
+
+  // Get the pizzas for the current page
+  const currentPizzas = pizzas.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <div className="bg-gray-100">
       {/* Header Section */}
@@ -42,118 +165,53 @@ const Menus = () => {
 
         {/* Pizza Menu */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-4">
-          {/* Pizza Items */}
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima13.jpg"
-              alt="Pepperoni Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Pepperoni Pizza</h3>
-              <p className="text-gray-600">Classic pizza with pepperoni, mozzarella, and tomato sauce.</p>
-              <span className="block mt-4 text-red-600 font-bold">$12.99</span>
+          {/* Displaying current pizzas */}
+          {currentPizzas.map((pizza) => (
+            <div key={pizza._id} className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
+              <img
+                className="w-40 h-40 object-cover rounded-lg"
+                src={pizza.imageUrl}
+                alt={pizza.name}
+              />
+              <div>
+                <h3 className="text-xl font-bold text-gray-900">{pizza.name}</h3>
+                <p className="text-gray-600">{pizza.description}</p>
+                <span className="block mt-4 text-red-600 font-bold">${pizza.price}</span>
+              </div>
             </div>
-          </div>
+          ))}
+        </div>
 
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima2.jpg"
-              alt="Margherita Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Margherita Pizza</h3>
-              <p className="text-gray-600">Traditional pizza with fresh tomatoes, mozzarella, and basil.</p>
-              <span className="block mt-4 text-red-600 font-bold">$10.99</span>
-            </div>
-          </div>
+        {/* Pagination Controls */}
+        <div className="flex justify-center space-x-2 mt-6">
+          {/* Previous Page */}
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded ${currentPage === 1 ? 'bg-gray-400' : 'bg-red-500 text-white'}`}
+          >
+            Previous
+          </button>
 
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima3.jpg"
-              alt="BBQ Chicken Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">BBQ Chicken Pizza</h3>
-              <p className="text-gray-600">Topped with BBQ sauce, grilled chicken, and onions.</p>
-              <span className="block mt-4 text-red-600 font-bold">$13.99</span>
-            </div>
-          </div>
+          {/* Page Numbers */}
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
+            <button
+              key={page}
+              onClick={() => handlePageChange(page)}
+              className={`px-4 py-2 rounded ${page === currentPage ? 'bg-red-500 text-white' : 'bg-gray-200'}`}
+            >
+              {page}
+            </button>
+          ))}
 
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima4.jpg"
-              alt="Vegetarian Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Vegetarian Pizza</h3>
-              <p className="text-gray-600">Loaded with bell peppers, onions, mushrooms, and olives.</p>
-              <span className="block mt-4 text-red-600 font-bold">$11.99</span>
-            </div>
-          </div>
-
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima5.jpg"
-              alt="Hawaiian Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Hawaiian Pizza</h3>
-              <p className="text-gray-600">Ham, pineapple, and mozzarella cheese with tomato sauce.</p>
-              <span className="block mt-4 text-red-600 font-bold">$14.99</span>
-            </div>
-          </div>
-
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima7.jpg"
-              alt="Meat Lover's Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Meat Lover's Pizza</h3>
-              <p className="text-gray-600">Loaded with pepperoni, sausage, ham, and bacon.</p>
-              <span className="block mt-4 text-red-600 font-bold">$15.99</span>
-            </div>
-          </div>
-
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima8.jpg"
-              alt="Four Cheese Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Four Cheese Pizza</h3>
-              <p className="text-gray-600">Mozzarella, cheddar, parmesan, and gorgonzola cheese blend.</p>
-              <span className="block mt-4 text-red-600 font-bold">$13.49</span>
-            </div>
-          </div>
-
-          <div className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-6">
-            <img
-              className="w-40 h-40 object-cover rounded-lg"
-              src="/images/ima11.jpg"
-              alt="Buffalo Chicken Pizza"
-            />
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">Buffalo Chicken Pizza</h3>
-              <p className="text-gray-600">Spicy buffalo sauce, grilled chicken, and mozzarella.</p>
-              <span className="block mt-4 text-red-600 font-bold">$14.49</span>
-            </div>
-          </div>
-
-
-
-          {/* <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-bold text-gray-900">Supreme Pizza</h3>
-            <p className="text-gray-600">Pepperoni, sausage, bell peppers, onions, mushrooms, and olives.</p>
-            <span className="block mt-4 text-red-600 font-bold">$16.49</span>
-          </div> */}
+          {/* Next Page */}
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded ${currentPage === totalPages ? 'bg-gray-400' : 'bg-red-500 text-white'}`}
+          >
+            Next
+          </button>
         </div>
       </section>
     </div>
@@ -161,3 +219,4 @@ const Menus = () => {
 };
 
 export default Menus;
+
