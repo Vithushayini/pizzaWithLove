@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "670a5825de34640a218c66bf"
+  },
+  "name": "John Doe",
+  "contactInfo": "john.doe@example.com",
+  "date": {
+    "$date": "2024-10-15T00:00:00.000Z"
+  },
+  "reservationTime": "18:30",
+  "peopleCount": 4,
+  "message": "we want Pepperoni Pizzas",
+  "createdAt": {
+    "$date": "2024-10-12T11:06:13.959Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670a5aa91c435654f10802b3"
+  },
+  "name": "ram",
+  "contactInfo": "ram.doe@example.com",
+  "date": {
+    "$date": "2024-10-15T19:00:00.000Z"
+  },
+  "reservationTime": "18:30",
+  "peopleCount": 6,
+  "message": "we want Pepperoni Pizzas",
+  "createdAt": {
+    "$date": "2024-10-12T11:16:57.659Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670d2fb8e49d52d4bf3c0487"
+  },
+  "name": "Table",
+  "contactInfo": "vbnm,./",
+  "date": {
+    "$date": "2024-10-04T00:00:00.000Z"
+  },
+  "reservationTime": "23:20",
+  "peopleCount": 4,
+  "message": "fghjklkjhgfds",
+  "createdAt": {
+    "$date": "2024-10-14T14:50:32.760Z"
+  },
+  "__v": 0
+}]

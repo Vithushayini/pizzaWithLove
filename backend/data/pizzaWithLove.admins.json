@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "670a06b3d98d0299233e7bd9"
+  },
+  "username": "vithusha",
+  "password": "$2b$10$HC2ckEz8A4Ybs61klk5ch.sB02quBrF.aAqJmXXIZ7mYiRBs.wDGa",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "670a08763a7b29bd7dd04abc"
+  },
+  "username": "thadsha",
+  "password": "$2b$10$PsVbz6o8rILkLZIxBtUBkuBBDXThf0ES57AwTtx8937fQHXJoPVZW",
+  "__v": 0
+}]
