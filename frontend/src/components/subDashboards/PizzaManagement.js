@@ -18,22 +18,23 @@ const PizzaManagement = () => {
   // Ref to the bottom of the pizza list
   const pizzaListRef = useRef(null);
 
-  useEffect(() => {
-    const fetchPizzas = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/api/v1/menu', {
-          withCredentials: true, // Enable sending cookies with the request
-        });
+  const fetchPizzas = async () => {
+    try {
+      const response = await axios.get('http://localhost:8000/api/v1/menu', {
+        withCredentials: true, // Enable sending cookies with the request
+      });
 
-        setPizzas(response.data);
-      } catch (error) {
-        console.error('Error fetching pizzas', error);
-        setErrorMessage('Error fetching pizzas');
-      }
-    };
+      setPizzas(response.data);
+    } catch (error) {
+      console.error('Error fetching pizzas', error);
+      setErrorMessage('Error fetching pizzas');
+    }
+  };
+
+  useEffect(() => {
 
     fetchPizzas();
-  }, [pizzas]);
+  }, []);
 
   const handleAddPizza = async () => {
     if (isEditing) {
@@ -51,6 +52,9 @@ const PizzaManagement = () => {
         setSuccessMessage('Pizza updated successfully!');
         setErrorMessage(''); // Clear error message if successful
         // Scroll to the pizza list after adding a new pizza
+
+        fetchPizzas();
+        
         window.scrollTo({
             top: document.getElementById('pizza-list').offsetTop,
             behavior: 'smooth', // Smooth scroll

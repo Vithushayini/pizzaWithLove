@@ -38,7 +38,7 @@ function App() {
             <Route path="/login" element={<AdminLogin setIsLoggedIn={setIsLoggedIn}/>} />
             <Route path="/dashboard" element={isLoggedIn ? <Dashboard/> : <Navigate to="/" />}/>
             <Route path="/menus" element={<Menus/>}/>
-            
+            <Route path="/reservation" element={<Reservation/>}/>
 
           </Routes>
        </BrowserRouter>

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IoIosHeart } from "react-icons/io";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import {faTwitter, faLinkedin, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -67,9 +67,9 @@ const Header = ({setIsLoggedIn}) => {
             <FontAwesomeIcon icon={faShoppingCart} />
               <span className="absolute bottom-5 left-2 bg-red-600 text-xs text-white rounded-full px-1">3</span>
             </a>
-            <button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
+            <Link to="/reservation"><button className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
               BOOK A TABLE
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

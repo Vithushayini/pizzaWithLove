@@ -22,7 +22,7 @@ const ReservationManagement = () => {
 
   return (
     <div>
-      <h2 className="text-2xl w-1/2 text-white font-bold mb-4 px-5 text-center">Reservation List</h2>
+      <h2 className="text-2xl w-1/2 text-white font-bold mb-4 px-5 text-center" id='reservation'>Reservation List</h2>
       <div className=" ml-10 mr-10 grid grid-cols-1 gap-4">
         {reservations.map((reservation) => (
           <div key={reservation._id} className="bg-white w-1/2 p-4 rounded shadow-md text-center">
